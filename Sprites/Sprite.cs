@@ -11,8 +11,8 @@ namespace App05MonoGame.Sprites
     /// Box is the Rectangle the image occupies, and the Bounday
     /// if it exists is the area outside of which the Sprite can
     /// not move.  Direction is a Vector such as (0, 1) which indicate
-    /// the down direction, and Speed is the rate of movement.  A
-    /// Speed of 60 is one pixel per second.  The Sprite can only
+    /// the down direction, and Speed is the rate of movement.
+    /// A speed of 60 is one pixel per second.  The Sprite can only
     /// move if it is Active and Alive.
     /// </summary>
     public class Sprite: 

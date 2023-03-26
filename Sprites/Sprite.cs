@@ -9,7 +9,7 @@ namespace App05MonoGame.Sprites
     /// This is a basic sprite which has a single image which
     /// can be scaled and rotated around an origin.  The Bounding
     /// Box is the Rectangle the image occupies, and the Bounday
-    /// if it exists is the area inside outside which the Sprite can
+    /// if it exists is the area outside of which the Sprite can
     /// not move.  Direction is a Vector such as (0, 1) which indicate
     /// the down direction, and Speed is the rate of movement.  A
     /// Speed of 60 is one pixel per second.  The Sprite can only
@@ -124,6 +124,10 @@ namespace App05MonoGame.Sprites
             Position = new Vector2(x, y);
         }
 
+        /// <summary>
+        /// Check to see if the bounding box of this sprite intersects
+        /// with the bounding box of the other sprite.
+        /// </summary>
         public bool HasCollided(Sprite otherSprite)
         {
             if(BoundingBox.Intersects(otherSprite.BoundingBox))
@@ -137,6 +141,11 @@ namespace App05MonoGame.Sprites
             return false;
         }
 
+        /// <summary>
+        /// The sprites position is updated based on its current 
+        /// speed and direction.  If a Boundary is set the sprite
+        /// cannot move outside the boundary.
+        /// </summary>
         public virtual void Update(GameTime gameTime)
         {
             deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -160,6 +169,10 @@ namespace App05MonoGame.Sprites
             }
         }
 
+        /// <summary>
+        /// Draw the sprite image at the current position and
+        /// the current scale and rotation.
+        /// </summary>
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             if (debug)
@@ -186,6 +199,5 @@ namespace App05MonoGame.Sprites
         {
             return this.MemberwiseClone();
         }
-
     }
 }
